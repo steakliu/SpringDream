@@ -1,0 +1,41 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: dream-microservice-consumer
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+        port: 8719
+      #流控规则持久化
+      datasource:
+        dsl:
+          nacos:
+            server-addr: 116.198.160.39:8848 #nacos地址
+            data-id: ${spring.application.name} #相当于nacos配置的dataId
+            group-id: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+
+    nacos:
+      discovery:
+        server-addr: 116.198.160.39:8848
+      config:
+        server-addr: 116.198.160.39:8848
+        file-extension: yaml
+
+####激活sentinel对openFeign的支持
+feign:
+  sentinel:
+    enabled: true
+
+#要调用的微服务
+service:
+  name: dream-microservice-provider
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

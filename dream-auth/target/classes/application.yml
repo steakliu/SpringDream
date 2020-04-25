@@ -1,0 +1,25 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: dream-auth
+  datasource:
+    username: root
+    password: xiaosi520
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://116.198.160.39:3306/dream?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+  redis:
+    host: 117.48.197.104
+    port: 6379
+    password: xiaosi520
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 116.198.160.39:8848
+
+###mybatis驼峰配置
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+

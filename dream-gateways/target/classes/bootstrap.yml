@@ -1,0 +1,46 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: dream-gateway
+  redis:
+    host: 117.48.197.104
+    port: 6379
+    password: xiaosi520
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 116.198.160.39:8848
+#      config:
+#        server-addr: 116.198.160.39:8848
+#        file-extension: yaml
+    gateway:
+      discovery:
+        locator:
+          enabled: true   #开启从注册中心动态创建路由的功能，利用微服务名进行路由
+      routes:
+        #basic
+        - id: dream-basic
+          uri: http://127.0.0.1:7777
+          predicates:
+            - Path=/menu/list
+
+############################## consumer ############################################
+        - id: dream-consumer
+          uri: http://127.0.0.1:8002
+          predicates:
+            - Path=/flowLimit
+
+############################## Auth ############################################
+        - id: dream-auth
+          uri: http://127.0.0.1:9001
+          predicates:
+            - Path=/auth/**
+
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
