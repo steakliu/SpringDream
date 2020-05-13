@@ -4,6 +4,7 @@ import org.dream.commons.utils.redis.RedisCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -34,7 +35,12 @@ public class RedisCacheImpl implements RedisCache {
      */
     @Override
     public Boolean deleteKey(String key) {
-        return redisTemplate.delete(key);
+        try {
+            return redisTemplate.delete(key);
+        }catch (Exception e){
+            return false;
+        }
+
     }
 
     /**
@@ -54,5 +60,20 @@ public class RedisCacheImpl implements RedisCache {
     @Override
     public Long getKeyExpTime(String key){
          return redisTemplate.getExpire(key,TimeUnit.MILLISECONDS);
+    }
+
+
+    @Override
+    public String getCache(String key) {
+        return (String) redisTemplate.opsForValue().get(key);
+    }
+
+    @Override
+    public Boolean hasKey(String key) {
+        try {
+            return redisTemplate.hasKey(key);
+        }catch (Exception e){
+            return false;
+        }
     }
 }

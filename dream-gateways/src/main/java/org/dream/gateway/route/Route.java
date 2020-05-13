@@ -19,11 +19,22 @@ public class Route {
      * @return
      */
     public static List<String> unAuthRoute(){
-        //登录
-        noAuthRouteList.add("/login");
-        noAuthRouteList.add("/menu/list");
-        noAuthRouteList.add("/auth/login");
-        //noAuthRouteList.add("/auth/userInfo");
+        /**
+         * 单点登录
+         */
+        noAuthRouteList.add("/sso/login");
+        /**
+         * 验证用户是否登录
+         */
+        noAuthRouteList.add("/sso/loginValidate");
+        /**
+         * 单点登出
+         */
+        noAuthRouteList.add("/sso/loginOut");
+
+        noAuthRouteList.add("/auth/userInfo");
+
+        noAuthRouteList.add("/menu/selectRoutesByUserId");
         return noAuthRouteList;
     }
 }

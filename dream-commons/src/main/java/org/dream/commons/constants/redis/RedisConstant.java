@@ -22,4 +22,9 @@ public class RedisConstant {
      *5分钟
      */
     public static final long TOKEN_WILL_DEAD = 300000;
+
+    /**
+     * key
+     */
+    public static final String KEY = "key";
 }

@@ -1,12 +1,9 @@
 package org.dream.gateway.utils;
 
 import com.auth0.jwt.JWT;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
 import org.dream.commons.constants.redis.RedisConstant;
 import org.dream.commons.constants.token.PayloadConstant;
 import org.dream.commons.constants.token.TokenConstant;
-import org.dream.commons.utils.info.UserInfoUtil;
 import org.dream.commons.utils.redis.RedisCache;
 import org.springframework.stereotype.Component;
 
@@ -23,15 +20,20 @@ public class JwtUtil {
     @Resource
     private RedisCache redisCache;
 
+    /**
+     * 基于Redis的方案
+     * @param token
+     * @return
+     */
     public boolean checkToken(String token) {
         /**
-         * 用户名
+         * 用户唯一识别
          */
-        String username = JWT.decode(token).getClaim(PayloadConstant.USER_NAME).asString();
+        String key = JWT.decode(token).getClaim(PayloadConstant.KEY).asString();
         /**
          * 还有多久过期
          */
-        long time = redisCache.getKeyExpTime(RedisConstant.TOKEN_KEY + username);
+        long time = redisCache.getKeyExpTime(key);
         /**
          * 已经过期
          */
@@ -45,7 +47,7 @@ public class JwtUtil {
             /**
              * 为token续时
              */
-            return refreshToken(username);
+            return refreshToken(key);
         }
         /**
          * 未过期

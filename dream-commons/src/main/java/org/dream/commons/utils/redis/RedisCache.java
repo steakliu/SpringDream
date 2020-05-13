@@ -1,5 +1,7 @@
 package org.dream.commons.utils.redis;
 
+import java.util.HashMap;
+
 /**
  * @Author 刘牌
  * @Date 2020/4/24 0024 19:08
@@ -29,5 +31,10 @@ public interface RedisCache {
 
 
     public Long getKeyExpTime(String key);
+
+
+    public String getCache(String key);
+
+    public Boolean hasKey(String key);
 
 }

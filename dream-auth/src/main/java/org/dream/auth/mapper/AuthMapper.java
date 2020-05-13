@@ -2,8 +2,8 @@ package org.dream.auth.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import org.dream.auth.pojo.Role;
-import org.dream.auth.pojo.UserInfo;
+import org.dream.pojo.Role;
+import org.dream.pojo.UserInfo;
 
 import java.util.List;
 

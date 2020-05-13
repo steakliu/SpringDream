@@ -1,6 +1,6 @@
 package org.dream.auth.service;
 
-import org.dream.auth.pojo.UserInfo;
+import org.dream.pojo.UserInfo;
 
 /**
  * @Author 刘牌

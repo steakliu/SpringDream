@@ -13,4 +13,9 @@ public class GlobalConstant {
      */
     public static final String TOKEN = "token";
 
+    /**
+     * cookie名词
+     */
+    public static final String CookieKey = "ticket";
+
 }

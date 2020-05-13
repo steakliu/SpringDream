@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.dream</groupId>
     <artifactId>SpringDream</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>steak-one</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>

@@ -7,6 +7,10 @@ package org.dream.commons.constants.token;
  */
 
 public class PayloadConstant {
+    /**
+     * 唯一标识
+     */
+    public static final String KEY = "key";
 
     /**
      * 用户ID

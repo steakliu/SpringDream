@@ -2,12 +2,11 @@ package org.dream.auth.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.dream.auth.mapper.AuthMapper;
-import org.dream.auth.pojo.Role;
-import org.dream.auth.pojo.UserInfo;
 import org.dream.auth.service.AuthService;
-import org.dream.commons.exception.BusinessException;
-import org.dream.commons.exception.CommonErrorEnum;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.dream.web.BusinessException;
+import org.dream.web.CommonErrorEnum;
+import org.dream.pojo.Role;
+import org.dream.pojo.UserInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

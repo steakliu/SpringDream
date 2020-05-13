@@ -2,7 +2,7 @@ package org.dream.commons.utils.info;
 
 import com.auth0.jwt.JWT;
 import org.dream.commons.constants.token.PayloadConstant;
-import org.dream.commons.vo.UserInfoVO;
+import org.dream.pojo.vo.UserInfoVO;
 
 /**
  * @Author 刘牌

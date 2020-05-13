@@ -16,7 +16,6 @@ import java.nio.charset.StandardCharsets;
  */
 
 public class AuthResponse {
-
     /**
      *
      * @param response

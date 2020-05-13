@@ -24,7 +24,7 @@ spring:
         - id: dream-basic
           uri: http://127.0.0.1:7777
           predicates:
-            - Path=/menu/list
+            - Path=/menu/**
 
 ############################## consumer ############################################
         - id: dream-consumer
@@ -37,6 +37,12 @@ spring:
           uri: http://127.0.0.1:9001
           predicates:
             - Path=/auth/**
+
+############################## SSO ############################################
+        - id: dream-sso
+          uri: http://127.0.0.1:1011
+          predicates:
+            - Path=/sso/**
 
 
 management:

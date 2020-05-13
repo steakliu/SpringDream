@@ -1,14 +1,7 @@
 package org.dream.gateway.filter;
 
-import com.auth0.jwt.JWT;
-import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.dream.commons.constants.global.GlobalConstant;
-import org.dream.commons.constants.token.PayloadConstant;
-import org.dream.commons.exception.BusinessException;
-import org.dream.commons.exception.CommonErrorEnum;
-import org.dream.commons.utils.info.WebUtil;
-import org.dream.commons.web.base.BaseController;
 import org.dream.gateway.route.Route;
 import org.dream.gateway.utils.JwtUtil;
 import org.dream.gateway.web.AuthResponse;
@@ -31,6 +24,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
 
     @Resource
     private JwtUtil jwtUtil;
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         /**
@@ -55,7 +49,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
          *  token过期
          */
         if (!b){
-            return AuthResponse.unAuth(response,"令牌已经过期");
+            return AuthResponse.unAuth(response,"令牌已过期");
         }
 
         return chain.filter(exchange);
