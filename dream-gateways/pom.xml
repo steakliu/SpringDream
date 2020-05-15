@@ -16,6 +16,17 @@
     <dependencies>
         <dependency>
             <groupId>org.dream</groupId>
+            <artifactId>dream-core-web</artifactId>
+            <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.dream</groupId>
             <artifactId>dream-commons</artifactId>
             <version>1.0.0</version>
             <!--dream-commons里面又spring-boot-starter-web包，和spring-cloud-starter-gateway

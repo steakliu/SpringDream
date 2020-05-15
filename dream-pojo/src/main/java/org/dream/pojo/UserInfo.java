@@ -16,7 +16,6 @@ public class UserInfo {
     private Long userId;
     private Long deptId;
     private String key;
-    private String token;
     private String userName;
     private String password;
     private List<Long> roleIds;

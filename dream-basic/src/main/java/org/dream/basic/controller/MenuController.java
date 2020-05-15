@@ -5,8 +5,6 @@ import org.dream.basic.service.IMenuService;
 import org.dream.commons.utils.info.WebUtil;
 import org.dream.web.base.BaseController;
 import org.dream.web.result.R;
-import org.dream.secure.aspect.anotation.PreAuthorize;
-import org.dream.secure.aspect.constant.AuthRole;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +29,6 @@ public class MenuController extends BaseController {
      * @return
      */
     @GetMapping("/selectRoutesByUserId")
-    @PreAuthorize(AuthRole.ADMIN)
     public R selectRoutesByUserId(HttpServletRequest request){
         String token = WebUtil.getToken(request);
         String userId = WebUtil.getUserId(token);

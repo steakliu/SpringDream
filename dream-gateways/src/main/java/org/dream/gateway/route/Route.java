@@ -32,9 +32,6 @@ public class Route {
          */
         noAuthRouteList.add("/sso/loginOut");
 
-        noAuthRouteList.add("/auth/userInfo");
-
-        noAuthRouteList.add("/menu/selectRoutesByUserId");
         return noAuthRouteList;
     }
 }

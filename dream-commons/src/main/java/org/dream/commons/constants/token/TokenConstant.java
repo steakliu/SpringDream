@@ -18,24 +18,24 @@ public class TokenConstant {
     public static final int TOKEN_DEAD_TIME_LENGTH = 360000; //小于等于五分钟的token
 
     /**
-     * TOKEN过期时间长度(6分钟过期)
+     * TOKEN过期时间长度(7分钟过期)
      */
-    private static final long EXPIRATION_DATE_LENGTH = 360000;
+    private static final long EXPIRATION_DATE_LENGTH = 420000;
 
     /**
      * ID
      */
-    public static final String ID = UUID.randomUUID().toString().replace("_", "");
+    public static final String ID = UUID.randomUUID().toString().replace("-", "");
 
     /**
      * token的生成时间
      */
-    public static final Date GENERATE_TOKEN_TIME = new Date(System.currentTimeMillis());
+    public static final Date GENERATE_TOKEN_TIME = new Date();
 
     /**
      * 过期时间
      */
-    public static final Date EXPIRATION_DATE =  new Date(System.currentTimeMillis() + EXPIRATION_DATE_LENGTH);
+    public static final Date EXPIRATION_DATE =  new Date(System.currentTimeMillis() + 420000);
 
     /**
      * 签名算法

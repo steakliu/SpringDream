@@ -8,8 +8,6 @@ import org.dream.commons.utils.jwt.TokenUtil;
 import org.dream.commons.utils.redis.RedisCache;
 import org.dream.commons.utils.security.SecurityUtil;
 import org.dream.commons.utils.uuid.UUIDUtil;
-import org.dream.secure.aspect.anotation.PreAuthorize;
-import org.dream.secure.aspect.constant.AuthRole;
 import org.dream.web.CommonErrorEnum;
 import org.dream.web.result.R;
 import org.dream.pojo.LoginBody;
@@ -55,7 +53,7 @@ public class SsoController {
         /**
          * 将用户唯一标识存至redis
          */
-        redisCache.setCache(userInfo.getKey(), token, RedisConstant.TOKEN_WILL_DEAD);
+        redisCache.setCache(userInfo.getKey(), token, RedisConstant.TOKEN_DEAD_TIME_LENGTH);
         /**
          * 校验通过，将用户的账号返回cookie里面
          */

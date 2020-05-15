@@ -52,4 +52,13 @@ public class WebUtil {
         return JWT.decode(token).getClaim(PayloadConstant.ROLE_NAME_LIST).asList(String.class);
     }
 
+    /**
+     * 获取用户唯一标识
+     * @param token
+     * @return
+     */
+    public static String getKey(String token){
+        return JWT.decode(token).getClaim(PayloadConstant.KEY).asString();
+    }
+
 }

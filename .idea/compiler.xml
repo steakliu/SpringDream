@@ -6,10 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="dream-sso" />
         <module name="dream-microservice-consumer" />
         <module name="dream-basic" />
         <module name="dream-commons" />
-        <module name="dream-core-web" />
         <module name="dream-auth" />
         <module name="dream-service-comsumer" />
         <module name="dream-gateways" />
@@ -18,7 +18,7 @@
         <module name="dream-pojo" />
         <module name="dream-devops" />
         <module name="dream-microservice-consumer-api" />
-        <module name="dream-sso" />
+        <module name="dream-core-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -41,4 +41,9 @@ public class PayloadConstant {
      * 用户所属部门ID
      */
     public static final String DEPT_ID = "deptId";
+
+    /**
+     * 密钥
+     */
+    public static final String SECRET = "user-secret-xx";
 }

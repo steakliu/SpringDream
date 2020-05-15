@@ -12,5 +12,10 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD})
 @Inherited
 public @interface PreAuthorize {
+
+    /**
+     * 用于接口上的权限验证，对象是角色，是一个数组
+     * @return
+     */
     String[] value() default {}  ;
 }

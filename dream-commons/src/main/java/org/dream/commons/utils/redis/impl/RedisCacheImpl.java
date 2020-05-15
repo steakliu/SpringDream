@@ -4,7 +4,6 @@ import org.dream.commons.utils.redis.RedisCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
-
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -59,7 +58,7 @@ public class RedisCacheImpl implements RedisCache {
      */
     @Override
     public Long getKeyExpTime(String key){
-         return redisTemplate.getExpire(key,TimeUnit.MILLISECONDS);
+         return redisTemplate.getExpire(key,TimeUnit.MINUTES);
     }
 
 

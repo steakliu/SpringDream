@@ -3,16 +3,13 @@ package org.dream.commons.utils.cookie;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
  * @Author 刘牌
  * @Date 2020/5/4 0004 2:09
  * @Version 1.0
  * Cookie工具类
  */
-
 public class CookieUtils {
-
     /**
      *
      * @param request

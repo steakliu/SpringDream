@@ -3,12 +3,12 @@ package org.dream.gateway.filter;
 import lombok.extern.slf4j.Slf4j;
 import org.dream.commons.constants.global.GlobalConstant;
 import org.dream.gateway.route.Route;
-import org.dream.gateway.utils.JwtUtil;
+import org.dream.gateway.validate.JwtValidate;
 import org.dream.gateway.web.AuthResponse;
+import org.dream.web.result.R;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
-import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
@@ -23,10 +23,11 @@ import javax.annotation.Resource;
 public class AuthFilter implements GlobalFilter, Ordered {
 
     @Resource
-    private JwtUtil jwtUtil;
+    private JwtValidate jwtValidate;
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+
         /**
          * 无需鉴权的路由
          */
@@ -34,30 +35,31 @@ public class AuthFilter implements GlobalFilter, Ordered {
             return chain.filter(exchange);
         }
         String token = exchange.getRequest().getHeaders().getFirst(GlobalConstant.TOKEN);
-        ServerHttpResponse response = exchange.getResponse();
         /**
-         * token为空
+         * token is null
          */
         if (token == null) {
-            return AuthResponse.unAuth(response,"令牌为空，不能进行鉴权");
+            return AuthResponse.unAuth(exchange,"令牌为空，不能进行鉴权");
         }
         /**
-         * 校验token
+         * check the token
          */
-        boolean b = jwtUtil.checkToken(token);
-        /**
-         *  token过期
-         */
-        if (!b){
-            return AuthResponse.unAuth(response,"令牌已过期");
+        R r = jwtValidate.checkToken(token);
+        if (r == null){
+            return AuthResponse.unAuth(exchange,"令牌无效");
         }
-
+        /**
+         * 刷新token
+         */
+        if (r.getCode() == 201){
+            return AuthResponse.auth(exchange,r.getData());
+        }
         return chain.filter(exchange);
 
     }
 
     @Override
     public int getOrder() {
-        return 0;
+        return -200;
     }
 }

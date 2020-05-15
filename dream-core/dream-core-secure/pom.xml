@@ -15,6 +15,11 @@
     <dependencies>
         <dependency>
             <groupId>org.dream</groupId>
+            <artifactId>dream-commons</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.dream</groupId>
             <artifactId>dream-core-web</artifactId>
             <version>1.0.0</version>
         </dependency>

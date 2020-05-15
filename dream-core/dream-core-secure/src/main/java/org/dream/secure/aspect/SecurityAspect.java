@@ -1,10 +1,13 @@
 package org.dream.secure.aspect;
 
 import com.auth0.jwt.JWT;
+import jdk.nashorn.internal.runtime.GlobalConstants;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.dream.commons.constants.global.GlobalConstant;
+import org.dream.commons.constants.token.PayloadConstant;
 import org.dream.web.BusinessException;
 import org.dream.web.CommonErrorEnum;
 import org.dream.secure.aspect.anotation.PreAuthorize;
@@ -32,9 +35,8 @@ public class SecurityAspect{
 
     @Around("pointcutPreAuthorize(auth)")
     public Object doPreAuthorize(ProceedingJoinPoint point,PreAuthorize auth) throws Throwable {
-        System.out.println("AOP是否经过   -----------------");
-        String token = request.getHeader("token");
-        List<String> roles = JWT.decode(token).getClaim("roleNameList").asList(String.class);
+        String token = request.getHeader(GlobalConstant.TOKEN);
+        List<String> roles = JWT.decode(token).getClaim(PayloadConstant.ROLE_NAME_LIST).asList(String.class);
         if (AuthFunction.isContain(auth,roles)){
             return point.proceed();
         }
