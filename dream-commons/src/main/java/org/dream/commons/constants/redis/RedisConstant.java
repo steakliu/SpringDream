@@ -16,7 +16,7 @@ public class RedisConstant {
     /**
      * token在Redis中的过期时间
      */
-    public static final long TOKEN_DEAD_TIME_LENGTH = 7;
+    public static final long TOKEN_DEAD_TIME_LENGTH = 70;
 
     /**
      *5分钟

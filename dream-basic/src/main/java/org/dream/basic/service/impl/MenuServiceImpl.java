@@ -36,9 +36,7 @@ public class MenuServiceImpl implements IMenuService {
         List<Menu> menus = null;
         if (username.equals(UserConstant.ADMIN)){
             menus = menuMapper.selectRoutesAll();
-            List<Menu> childPerms = getChildPerms(menus, 0);
-            List<MenuVO> list = filterRoutes(childPerms);
-            return list;
+            return buildMenus(getChildPerms(menus,0));
         }
         else {
             //return menuMapper.selectRoutesByUserId(userId);
@@ -46,31 +44,28 @@ public class MenuServiceImpl implements IMenuService {
         }
     }
 
-    public List<MenuVO> filterRoutes(List<Menu> menus){
-        List<MenuVO> routers = new LinkedList<>();
+    /**
+     * 构建前端路由所需要的菜单
+     *
+     * @param menus 菜单列表
+     * @return 路由列表
+     */
+    public List<MenuVO> buildMenus(List<Menu> menus)
+    {
+        List<MenuVO> routers = new LinkedList<MenuVO>();
         for (Menu menu : menus)
         {
             MenuVO router = new MenuVO();
-            if (menu.getPath().equals("/")){
-                List<MenuVO> indexList = new LinkedList<>();
-                MenuVO indexMenu = new MenuVO();
-                indexMenu.setPath("index")
-                        .setComponent("index/index")
-                        .setMeta(new Meta("home","首页"));
-                indexList.add(indexMenu);
-                router.setPath("/")
-                        .setRedirect("/index")
-                        .setChildren(indexList);
-            }
+            router.setName(StringUtils.capitalize(menu.getPath()));
             router.setPath(getRouterPath(menu));
             router.setComponent(StringUtils.isEmpty(menu.getComponent()) ? "Layout" : menu.getComponent());
             router.setMeta(new Meta(menu.getIcon(),menu.getMenuName()));
-            router.setName(menu.getMenuName());
             List<Menu> cMenus = menu.getChildren();
             if (!cMenus.isEmpty() && cMenus.size() > 0 && "M".equals(menu.getMenuType()))
             {
+                router.setAlwaysShow(true);
                 router.setRedirect("noRedirect");
-                router.setChildren(filterRoutes(cMenus));
+                router.setChildren(buildMenus(cMenus));
             }
             routers.add(router);
         }
@@ -123,15 +118,19 @@ public class MenuServiceImpl implements IMenuService {
      * @param list
      * @param t
      */
-    private void recursionFn(List<Menu> list, Menu t) {
+    private void recursionFn(List<Menu> list, Menu t)
+    {
         // 得到子节点列表
         List<Menu> childList = getChildList(list, t);
         t.setChildren(childList);
-        for (Menu tChild : childList) {
-            if (hasChild(list, tChild)) {
+        for (Menu tChild : childList)
+        {
+            if (hasChild(list, tChild))
+            {
                 // 判断是否有子节点
                 Iterator<Menu> it = childList.iterator();
-                while (it.hasNext()) {
+                while (it.hasNext())
+                {
                     Menu n = (Menu) it.next();
                     recursionFn(list, n);
                 }
@@ -156,6 +155,7 @@ public class MenuServiceImpl implements IMenuService {
         }
         return tlist;
     }
+
 
     /**
      * 判断是否有子节点

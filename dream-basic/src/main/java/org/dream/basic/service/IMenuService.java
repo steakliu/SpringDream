@@ -1,6 +1,5 @@
 package org.dream.basic.service;
 
-import org.dream.basic.pojo.domain.Menu;
 import org.dream.basic.pojo.vo.menu.MenuVO;
 
 import java.util.List;

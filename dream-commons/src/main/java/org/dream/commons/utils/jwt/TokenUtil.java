@@ -75,7 +75,7 @@ public class TokenUtil {
                 .setIssuedAt(TokenConstant.GENERATE_TOKEN_TIME)
                 .setSubject(subject)
                 .signWith(TokenConstant.SIGNATURE_ALGORITHM, key);
-        jwtBuilder.setExpiration(new Date(System.currentTimeMillis() + 520000));//设置过期时间
+        jwtBuilder.setExpiration(new Date(System.currentTimeMillis() + 5200000));//设置过期时间
         return jwtBuilder.compact();
     }
 

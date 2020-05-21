@@ -35,7 +35,7 @@ public class TokenConstant {
     /**
      * 过期时间
      */
-    public static final Date EXPIRATION_DATE =  new Date(System.currentTimeMillis() + 420000);
+    public static final Date EXPIRATION_DATE =  new Date(System.currentTimeMillis() + 4200000);
 
     /**
      * 签名算法

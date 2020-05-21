@@ -8,7 +8,7 @@ spring:
     username: root
     password: xiaosi520
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://116.198.160.39:3306/dream?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://116.198.160.39:3306/springdream?useUnicode=true&characterEncoding=UTF-8&useSSL=false
       ###nacos
   cloud:
     nacos:

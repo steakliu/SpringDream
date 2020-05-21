@@ -23,6 +23,8 @@ public class MenuVO {
 
     private String redirect;
 
+    private boolean alwaysShow;
+
     private Meta meta;
 
     private String name;
