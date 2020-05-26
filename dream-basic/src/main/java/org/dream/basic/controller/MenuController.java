@@ -7,6 +7,7 @@ import org.dream.web.base.BaseController;
 import org.dream.web.result.R;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +36,15 @@ public class MenuController extends BaseController {
         String userName = WebUtil.getUserName(token);
         List<MenuVO> list = menuService.selectRoutesByUserId(userId,userName);
         return R.success(list);
+    }
+
+    /**
+     * 菜单树
+     * @param request
+     * @return
+     */
+    public R menuTree(HttpServletRequest request){
+        return R.success(null);
     }
 
 
