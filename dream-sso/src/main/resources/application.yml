@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://116.198.160.39:3306/dream?useUnicode=true&characterEncoding=UTF-8&useSSL=false
   redis:
-    host: 117.48.197.104
+    host: 116.198.160.39
     port: 6379
     password: xiaosi520
   cloud:

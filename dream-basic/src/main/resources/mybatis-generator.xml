@@ -31,23 +31,23 @@
         </javaClientGenerator>
 
         <!--生成对应表及类名-->
-        <table tableName="dream_user" domainObjectName="User" enableCountByExample="false"
-               enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>
-        <table tableName="dream_role" domainObjectName="Role" enableCountByExample="false"
-               enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>
-        <table tableName="dream_post" domainObjectName="Post" enableCountByExample="false"
-               enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>
-        <table tableName="dream_menu" domainObjectName="Menu" enableCountByExample="false"
-               enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>
-        <table tableName="dream_dept" domainObjectName="Dept" enableCountByExample="false"
+<!--        <table tableName="dream_user" domainObjectName="User" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--        </table>-->
+<!--        <table tableName="dream_role" domainObjectName="Role" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--        </table>-->
+<!--        <table tableName="dream_post" domainObjectName="Post" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--        </table>-->
+<!--        <table tableName="dream_menu" domainObjectName="Menu" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--        </table>-->
+        <table tableName="dream_user_role" domainObjectName="UserRole" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
         </table>

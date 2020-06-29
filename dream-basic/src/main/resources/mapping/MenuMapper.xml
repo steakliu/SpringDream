@@ -255,4 +255,13 @@
 		from dream_menu m where m.menu_type in ('M', 'C') and m.visible = 0
 		order by m.parent_id, m.order_num
   </select>
+
+  <select id="selectRoutesByUserId" parameterType="String" resultMap="BaseResultMap">
+    select distinct m.menu_id, m.parent_id, m.menu_name, m.path, m.component, m.visible, m.is_frame, m.menu_type, m.icon, m.order_num, m.create_time
+         from dream_menu m
+         left join dream_role_menu rm on m.menu_id = rm.menu_id
+         left join dream_user_role ur on rm.role_id = ur.role_id
+         left join dream_role ro on ur.role_id = ro.role_id
+         where ur.user_id = #{userId}
+  </select>
 </mapper>

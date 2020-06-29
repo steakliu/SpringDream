@@ -17,3 +17,7 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapping/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+    ###########老师你好，我用的操作系统是ubuntu,下的录屏软件没有声音，请见谅    （刘牌）

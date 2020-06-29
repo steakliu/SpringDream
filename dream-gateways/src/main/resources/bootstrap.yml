@@ -5,7 +5,7 @@ spring:
   application:
     name: dream-gateway
   redis:
-    host: 117.48.197.104
+    host: 116.198.160.39
     port: 6379
     password: xiaosi520
   cloud:
@@ -24,7 +24,7 @@ spring:
         - id: dream-basic
           uri: http://127.0.0.1:7777
           predicates:
-            - Path=/menu/**
+            - Path=/basic/**
 
 ############################## consumer ############################################
         - id: dream-consumer

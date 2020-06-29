@@ -2,6 +2,7 @@ package org.dream.basic.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.dream.basic.pojo.domain.Menu;
+import org.dream.basic.pojo.vo.menu.MenuVO;
 
 import java.util.List;
 @Mapper
@@ -55,4 +56,6 @@ public interface MenuMapper {
     int updateByPrimaryKey(Menu record);
 
     List<Menu> selectRoutesAll();
+
+    List<Menu> selectRoutesByUserId(String userId);
 }

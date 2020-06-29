@@ -39,8 +39,8 @@ public class MenuServiceImpl implements IMenuService {
             return buildMenus(getChildPerms(menus,0));
         }
         else {
-            //return menuMapper.selectRoutesByUserId(userId);
-            return null;
+            menus = menuMapper.selectRoutesByUserId(userId);
+            return buildMenus(getChildPerms(menus,0));
         }
     }
 

@@ -12,6 +12,7 @@ public enum CommonErrorEnum implements CommonError{
     CUSTOM_EX(1000,"自定义异常"),
     PARAM_ERROR(1001,"参数不合法"),
     UNKNOWN_ERROR(1002,"未知错误"),
+    RESULT_IS_NULL(1003,"没有记录"),
     /**
      * 2000
      */

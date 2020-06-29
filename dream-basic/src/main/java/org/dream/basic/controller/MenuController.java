@@ -19,7 +19,7 @@ import java.util.List;
  * @Version 1.0
  */
 @RestController
-@RequestMapping("/menu")
+@RequestMapping("/basic")
 public class MenuController extends BaseController {
 
     @Resource
